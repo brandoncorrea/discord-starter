@@ -3,7 +3,7 @@
             [discljord.connections :as discord-ws]
             [discljord.messaging :as discord-rest]))
 
-(def ^:private state (atom nil))
+(def state (atom nil))
 (def id (atom nil))
 
 (defn rest-connection [] (:rest @state))

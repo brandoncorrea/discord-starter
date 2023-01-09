@@ -10,6 +10,6 @@
   (str (rand-nth responses) ", " (formatting/mention-user user) \!))
 
 (defmethod events/handle-event :message-create
-  [_ {:keys [channel-id author mentions] :as _data}]
+  [_ {:keys [channel-id author mentions]}]
   (when (some #{@bot/id} (map :id mentions))
     (discord-rest/create-message! (bot/rest-connection) channel-id :content (random-response author))))
